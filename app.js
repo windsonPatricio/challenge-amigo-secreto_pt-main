@@ -21,17 +21,20 @@ function adicionarAmigo() {
 function exibirListaTela() {
     let lista = document.getElementById('listaAmigos');
     lista.innerHTML="";
-    nomeAmigos.forEach(function(){
-       lista.innerHTML = nomeAmigos;
+    nomeAmigos.forEach(nome=> {
+        let li =  document.createElement('li');
+        li.classList.add(nome);
+        lista.appendChild(li);
+        li.innerHTML = nome;
     });
     
 }
 
-function exibirTextoNaTela(tag, texto) {
-    let campo = document.querySelector(tag);
-    campo.innerHTML = texto;
+// function exibirTextoNaTela(tag, texto) {
+//     let campo = document.querySelector(tag);
+//     campo.innerHTML = texto;
    
-}
+// }
 
 function limparCampo() {
     nomeDigitado = document.querySelector('input');
