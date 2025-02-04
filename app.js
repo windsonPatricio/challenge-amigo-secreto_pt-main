@@ -21,7 +21,6 @@ function adicionarAmigo() {
 function exibirListaTela() {
     let lista = document.getElementById('listaAmigos');
     lista.innerHTML="";
-
     nomeAmigos.forEach(function(){
        lista.innerHTML = nomeAmigos;
     });
