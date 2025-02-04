@@ -4,6 +4,7 @@ let nomeAmigos = [];
 let idAmigos = 0;
 
 
+
 function adicionarAmigo() {
     let nomeDigitado = document.querySelector('input').value;
 
@@ -21,22 +22,36 @@ function adicionarAmigo() {
 function exibirListaTela() {
     let lista = document.getElementById('listaAmigos');
     lista.innerHTML="";
-    nomeAmigos.forEach(nome=> {
+    nomeAmigos.forEach(nome => {
         let li =  document.createElement('li');
-        li.classList.add(nome);
         lista.appendChild(li);
         li.innerHTML = nome;
+        limparResultado("resultado");
     });
     
 }
 
-// function exibirTextoNaTela(tag, texto) {
-//     let campo = document.querySelector(tag);
-//     campo.innerHTML = texto;
-   
-// }
+function sortearAmigo(){
+    if (nomeAmigos == ""){
+        alert("Sem nomes para sortear!");
+    } else{
+        let amigoEscolhido =  parseInt(Math.random() * nomeAmigos.length );
+        console.log(amigoEscolhido);
+        let amigoSorteado = document.getElementById('resultado');
+        amigoSorteado.innerHTML = "seu amigo secreto é " + nomeAmigos[amigoEscolhido];
+        limparResultado("listaAmigos");
+        nomeAmigos = [];
+    }
+}
+
+
 
 function limparCampo() {
     nomeDigitado = document.querySelector('input');
     nomeDigitado.value = '';
+}
+
+function limparResultado(id){
+    let limparCampo = document.getElementById(id);
+    limparCampo.innerHTML="";
 }
